@@ -287,7 +287,9 @@ export default function useTouchSensor(api: SensorAPI) {
         }
 
         const touch: Touch = event.touches[0];
-        const { clientX, clientY } = touch;
+        const { clientX, clientY, force } = touch;
+        const isForceExist = force !== 0;
+
         const point: Position = {
           x: clientX,
           y: clientY,
@@ -300,7 +302,7 @@ export default function useTouchSensor(api: SensorAPI) {
         unbindEventsRef.current();
 
         // eslint-disable-next-line no-use-before-define
-        startPendingDrag(actions, point, handle);
+        startPendingDrag(actions, point, handle, isForceExist);
       },
     }),
     // not including stop or startPendingDrag as it is not defined initially
@@ -404,23 +406,32 @@ export default function useTouchSensor(api: SensorAPI) {
       actions: PreDragActions,
       point: Position,
       target: HTMLElement,
+      isForceExist: boolean,
     ) {
       invariant(
         getPhase().type === 'IDLE',
         'Expected to move from IDLE to PENDING drag',
       );
 
-      const longPressTimerId: TimeoutID = setTimeout(
-        startDragging,
-        timeForLongPress,
-      );
+      if (isForceExist) {
+        setPhase({
+          type: 'DRAGGING',
+          actions: actions.fluidLift(point),
+          hasMoved: true,
+        });
+      } else {
+        const longPressTimerId: TimeoutID = setTimeout(
+          startDragging,
+          timeForLongPress,
+        );
 
-      setPhase({
-        type: 'PENDING',
-        point,
-        actions,
-        longPressTimerId,
-      });
+        setPhase({
+          type: 'PENDING',
+          point,
+          actions,
+          longPressTimerId,
+        });
+      }
 
       bindCapturingEvents(target);
     },
