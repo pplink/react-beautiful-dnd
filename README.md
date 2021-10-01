@@ -19,6 +19,8 @@
 > 
 > 자세한 내용은 다음 링크를 참고해 주세요.
 > 
+> https://github.com/pplink/pagecall-client/pull/1227 (pagecall-client 적용 PR)
+>
 > https://pplink.slack.com/archives/C02CC873140/p1632363308006900 (애플펜슬 이슈 슬랙 스레드)
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/atlassian/react-beautiful-dnd/master.svg)](https://circleci.com/gh/atlassian/react-beautiful-dnd/tree/master)
