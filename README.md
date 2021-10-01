@@ -1,11 +1,25 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/2182637/53611918-54c1ff80-3c24-11e9-9917-66ac3cef513d.png" alt="react beautiful dnd logo" />
 </p>
-<h1 align="center">react-beautiful-dnd <small><sup>(rbd)</sup></small></h1>
+<h1 align="center">@pplink/react-beautiful-dnd <small><sup>(rbd)</sup></small></h1>
 
 <div align="center">
 
 **Beautiful** and **accessible** drag and drop for lists with [`React`](https://facebook.github.io/react/)
+
+> 이 패키지는 PPLINK 내부에서, PageCall 제품에 적용하기 위해 수정된 라이브러리입니다.
+> 
+> 이 패키지는 
+> 
+> 1 - 터치 디바이스에서 Drag&Drop이 비정상적으로 일어나는 이슈 수정
+> 
+> 2 - 아이패드 + 애플펜슬 환경에서 Drag&Drop이 동작하지 않는 이슈 해결
+> 
+> 을 위해 커스텀 되었습니다.
+> 
+> 자세한 내용은 다음 링크를 참고해 주세요.
+> 
+> https://pplink.slack.com/archives/C02CC873140/p1632363308006900 (애플펜슬 이슈 슬랙 스레드)
 
 [![CircleCI branch](https://img.shields.io/circleci/project/github/atlassian/react-beautiful-dnd/master.svg)](https://circleci.com/gh/atlassian/react-beautiful-dnd/tree/master)
 [![npm](https://img.shields.io/npm/v/react-beautiful-dnd.svg)](https://www.npmjs.com/package/react-beautiful-dnd)
